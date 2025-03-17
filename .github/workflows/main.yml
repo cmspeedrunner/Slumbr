@@ -1,0 +1,18 @@
+name: Build macOS App
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          brew install python3
+          pip3 install pyinstaller
+      - name: Build App
+        run: pyinstaller --onefile --windowed main.py
+      - name: Upload Build
+        uses: actions/upload-artifact@v3
+        with:
+          name: mac-app
+          path: dist/
