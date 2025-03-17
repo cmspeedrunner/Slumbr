@@ -10,9 +10,9 @@ jobs:
           brew install python3
           pip3 install pyinstaller
       - name: Build App
-        run: pyinstaller --onefile --windowed your_script.py
+        run: pyinstaller --onefile --windowed main.py
       - name: Upload Build
-        uses: actions/upload-artifact@v3  # Update to v3
+        uses: actions/upload-artifact@v3.1.0  # Specify a more stable tag
         with:
           name: mac-app
           path: dist/
