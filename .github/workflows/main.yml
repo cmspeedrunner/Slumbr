@@ -12,7 +12,7 @@ jobs:
       - name: Build App
         run: pyinstaller --onefile --windowed your_script.py
       - name: Upload Build
-        uses: actions/upload-artifact@v2 # Use version 2 for upload artifact (known to be stable)
+        uses: actions/upload-artifact@v3  # Update to v3
         with:
           name: mac-app
           path: dist/
